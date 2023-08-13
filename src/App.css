@@ -346,4 +346,22 @@ footer.input-group-text {
   display: block;
 }
 
+.product-card .product-image {
+  height: 270px;
+}
+
+.product-card .product-image img {
+  object-fit: contain;
+}
+
 /* Product Card Ends */
+
+/* Special Product */
+
+.special-product-card {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Special Product Ends */
