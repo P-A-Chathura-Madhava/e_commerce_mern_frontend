@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
-import BlogCart from "../components/BlogCart";
+import BlogCard from "../components/BlogCard";
+import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   return (
@@ -241,10 +242,23 @@ const Home = () => {
             <div className="col-12">
               <h3 className="section-heading">Our Latest Blogs</h3>
             </div>
-            <BlogCart/>
-            <BlogCart/>
-            <BlogCart/>
-            <BlogCart/>
+            <BlogCard/>
+            <BlogCard/>
+            <BlogCard/>
+            <BlogCard/>
+          </div>
+        </div>
+      </section>
+      <section className="blog-wrapper py-5 home-wrapper-2">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <h3 className="section-heading">Featured Collection</h3>
+            </div>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
           </div>
         </div>
       </section>
