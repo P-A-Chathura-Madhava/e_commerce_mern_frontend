@@ -214,6 +214,52 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section className="famous-wrapper py-5 home-wrapper-2">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-3">
+              <div className="famous-card position-relative">
+                <img src="images/famous-1.jpg" className="img-fluid" alt="" />
+                <div className="famous-content position-absolute">
+                  <h5>Big Screen</h5>
+                  <h6>Smart Watch Series 7</h6>
+                  <p>From 2000LKR or 6000LKR for 24 mo.</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-3">
+              <div className="famous-card position-relative">
+                <img src="images/famous-2.jpg" className="img-fluid" alt="" />
+                <div className="famous-content position-absolute">
+                  <h5 className="text-dark">Studio Display</h5>
+                  <h6 className="text-dark">600 nits of brightness</h6>
+                  <p className="text-dark">27-inch 5k Retina display</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-3">
+              <div className="famous-card position-relative">
+                <img src="images/famous-3.jpg" className="img-fluid" alt="" />
+                <div className="famous-content position-absolute">
+                  <h5 className="text-dark">smartphones</h5>
+                  <h6 className="text-dark">Smart Phone 13 Pro.</h6>
+                  <p className="text-dark">Now in Green. From 100000LKR or 200000LKR. for 24 mo. Footnite</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-3">
+              <div className="famous-card position-relative">
+                <img src="images/famous-4.jpg" className="img-fluid" alt="" />
+                <div className="famous-content position-absolute">
+                  <h5 className="text-dark">home speakers</h5>
+                  <h6 className="text-dark">Room filling sound.</h6>
+                  <p className="text-dark">From 2000LKR or 10000LKR for 12 mo. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="special-wrapper py-5 home-wrapper-2">
         <div className="container">
           <div className="row">
@@ -222,9 +268,25 @@ const Home = () => {
             </div>
           </div>
           <div className="row">
-            <SpecialProduct/>
-            <SpecialProduct/>
-            <SpecialProduct/>
+            <SpecialProduct />
+            <SpecialProduct />
+            <SpecialProduct />
+            <SpecialProduct />
+          </div>
+        </div>
+      </section>
+      <section className="populer-wrapper py-5 home-wrapper-2">
+        <div className="container-xxl">
+          <div className="row">
+            <div className="col-12">
+              <h3 className="section-heading">Our Popular Products</h3>
+            </div>
+          </div>
+          <div className="row">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
           </div>
         </div>
       </section>
