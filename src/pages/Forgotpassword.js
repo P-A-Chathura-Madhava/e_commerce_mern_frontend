@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import BreadCrumb from "../components/BreadCrumb";
+import Meta from "../components/Meta";
 
 const Forgotpassword = () => {
   return (
-    <div>Forgotpassword</div>
-  )
-}
+    <>
+      <Meta title={"Forgot Password"} />
+      <BreadCrumb title="Forgot Password" />
+    </>
+  );
+};
 
-export default Forgotpassword
+export default Forgotpassword;
