@@ -14,7 +14,7 @@ const BlogCart = () => {
           The href attribute requires a valid value to be accessible. Provide a
           v alid, navigable address as the href value.
         </p>
-        <Link to="" className="button">
+        <Link to="/blog/:id" className="button">
           Read More
         </Link>
       </div>
