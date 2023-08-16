@@ -40,6 +40,11 @@ const ProductCard = (props) => {
               edit={false}
               activeColor="#ffd700"
             />
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
+              Redundant alt attribute. Screen-readers already announce `img`
+              tags as an image. You don’t need to use the words `image`, `phot
+              o,` or `picture` (or any specified custom words) in the alt prop
+            </p>
             <p className="price">1000LKR</p>
           </div>
           <div className="action-bar position-absolute">
@@ -90,7 +95,7 @@ const ProductCard = (props) => {
               edit={false}
               activeColor="#ffd700"
             />
-            <p className="description">
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
               Redundant alt attribute. Screen-readers already announce `img`
               tags as an image. You don’t need to use the words `image`, `phot
               o,` or `picture` (or any specified custom words) in the alt prop
