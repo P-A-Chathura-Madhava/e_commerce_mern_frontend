@@ -654,4 +654,9 @@ footer.input-group-text {
   color: white;
 }
 
+.auth-card p {
+  font-size: 13px;
+  color: var(--color-777777);
+}
+
 /* Auth card ends */
