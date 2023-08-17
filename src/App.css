@@ -819,3 +819,32 @@ footer.input-group-text {
 }
 
 /* Main Product page ends */
+
+/* Cart Page */
+
+.cart-header {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.cart-header h4 {
+  font-size: 13px;
+  color: var(--color-777777);
+}
+
+.cart-col-1 {
+  width: 40%;
+}
+
+.cart-col-2 {
+  width: 10%;
+}
+
+.cart-col-3 {
+  width: 15%;
+}
+
+.cart-col-4 {
+  width: 15%;
+}
+
+/* Cart Page ends */
