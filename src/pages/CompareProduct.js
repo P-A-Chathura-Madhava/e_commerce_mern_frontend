@@ -2,13 +2,15 @@ import React from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
 import Color from "../components/Color";
+import Container from "../components/Container";
 
 const CompareProduct = () => {
   return (
     <>
       <Meta title={"Compare Products"} />
       <BreadCrumb title="Compare Products" />
-      <div className="compare-product-wrapper py-5 home-wrapper-2">
+      {/* <div className="compare-product-wrapper py-5 home-wrapper-2"> */}
+      <Container class1="compare-product-wrapper py-5 home-wrapper-2">
         <div className="container-xxl">
           <div className="row">
             <div className="col-3">
@@ -99,7 +101,8 @@ const CompareProduct = () => {
             </div>
           </div>
         </div>
-      </div>
+        </Container>
+      {/* </div> */}
     </>
   );
 };

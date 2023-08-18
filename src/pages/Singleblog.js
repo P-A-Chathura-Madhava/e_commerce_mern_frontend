@@ -4,14 +4,16 @@ import Meta from "../components/Meta";
 import { Link } from "react-router-dom";
 import { HiOutlineArrowLeft } from "react-icons/hi";
 import blog from '../images/blog-1.jpg';
+import Container from "../components/Container";
 
 const Singleblog = () => {
   return (
     <>
       <Meta title={"Dynamic Blog Name"} />
       <BreadCrumb title="Dynamic Blog Name" />
-      <div className="blog-wrapper home-wrapper-2 py-5">
-        <div className="container-xxl">
+      {/* <div className="blog-wrapper home-wrapper-2 py-5"> */}
+      <Container clas1="blog-wrapper home-wrapper-2 py-5">
+        {/* <div className="container-xxl"> */}
           <div className="row">
             <div className="col-12">
               <div className="single-blog-card">
@@ -35,8 +37,9 @@ const Singleblog = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        {/* </div> */}
+        </Container>
+      {/* </div> */}
     </>
   );
 };
