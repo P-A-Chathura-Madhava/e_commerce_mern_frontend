@@ -8,11 +8,17 @@ import watch from "../images/watch.jpg";
 import watch2 from "../images/watch-1.jpg";
 import addcart from "../images/add-cart.svg";
 import view from "../images/view.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { addToWishlist } from "../features/products/productSlice";
 
 const ProductCard = (props) => {
   let location = useLocation();
   const { grid, data } = props;
-  console.log(data);
+  const dispatch = useDispatch();
+  // console.log(data);
+  const addToWish = (id) => {
+    dispatch(addToWishlist(id));
+  };
   return (
     <>
       {data?.map((item, index) => {
@@ -24,31 +30,38 @@ const ProductCard = (props) => {
             }`}
           >
             <Link
-              to={`${
-                location.pathname !== "/"
-                  ? "/product/:id"
-                  : location.pathname == "/product/:id"
-                  ? "/product/:id"
-                  : ":id"
-              }`}
+              // to={`${
+              //   location.pathname !== "/"
+              //     ? "/product/:id"
+              //     : location.pathname == "/product/:id"
+              //     ? "/product/:id"
+              //     : ":id"
+              // }`}
               className="product-card position-relative"
             >
               <div className="wishlist-icon position-absolute">
-                <button className="border-0 bg-transparent">
+                <button
+                  className="border-0 bg-transparent"
+                  onClick={(e) => {
+                    addToWish(item?._id);
+                  }}
+                >
                   <img src={wish} alt="wishlist" />
                 </button>
               </div>
               <div className="product-image">
                 <img
-                  src={item?.images[0].url}
+                  src={/* item?.images[0].url */ watch}
                   className="img-fluid mx-auto"
                   alt="product image"
                   width={160}
                 />
-                <img src={item?.images[2].url}
+                <img
+                  src={/* item?.images[2].url */ watch2}
                   className="img-fluid mx-auto"
                   alt="product image"
-                  width={160} />
+                  width={160}
+                />
               </div>
               <div className="product-details">
                 <h6 className="brand"> {item?.brand}</h6>
