@@ -11,24 +11,24 @@ import { useEffect } from "react";
 
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
-  const productState = useSelector((state) => state.product.product);
+
+  const productState = useSelector((state) => state?.product?.product);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     getProducts();
   }, []);
+
   const getProducts = () => {
     dispatch(getAllProducts());
-  }
-  const gridSetter = (i) => {
-    setGrid(i);
   };
+
   return (
     <>
       <Meta title={"Our Store"} />
       <BreadCrumb title="Our Store" />
-      {/* <div className="store-wrapper home-wrapper-2 py-5"> */}
       <Container class1="store-wrapper home-wrapper-2 py-5">
-        {/* <div className="container-xxl"> */}
         <div className="row">
           <div className="col-3">
             <div className="filter-card mb-3">
@@ -207,9 +207,7 @@ const OurStore = () => {
                     id=""
                   >
                     <option value="manual">Featured</option>
-                    <option value="best-selling">
-                      Best selling
-                    </option>
+                    <option value="best-selling">Best selling</option>
                     <option value="title-ascending">Alphabetically, A-Z</option>
                     <option value="title-descending">
                       Alphabetically, Z-A
@@ -262,14 +260,15 @@ const OurStore = () => {
             </div>
             <div className="products-list pb-5">
               <div className="d-flex gap-10 flex-wrap">
-                <ProductCard grid={grid} />
+                <ProductCard
+                  data={productState ? productState : []}
+                  grid={grid}
+                />
               </div>
             </div>
           </div>
         </div>
-        {/* </div> */}
       </Container>
-      {/* </div> */}
     </>
   );
 };
