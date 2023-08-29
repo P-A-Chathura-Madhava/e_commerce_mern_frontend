@@ -30,13 +30,6 @@ const ProductCard = (props) => {
             }`}
           >
             <Link
-              // to={`${
-              //   location.pathname !== "/"
-              //     ? "/product/:id"
-              //     : location.pathname == "/product/:id"
-              //     ? "/product/:id"
-              //     : ":id"
-              // }`}
               className="product-card position-relative"
             >
               <div className="wishlist-icon position-absolute">
