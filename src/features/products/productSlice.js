@@ -25,7 +25,7 @@ export const addToWishlist = createAsyncThunk(
 );
 
 export const getAProduct = createAsyncThunk(
-  "product/getAProduct",
+  "product/getAproduct",
   async (id, thunkAPI) => {
     try {
       return await productService.getSingleProduct(id);
@@ -86,7 +86,7 @@ export const productSlice = createSlice({
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
-        state.product = action.payload;
+        state.singleproduct = action.payload;
         state.message = "Product Fetched Successfully";
       })
       .addCase(getAProduct.rejected, (state, action) => {

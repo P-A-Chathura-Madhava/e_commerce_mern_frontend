@@ -12,21 +12,43 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAProduct } from "../features/products/productSlice";
+import { toast } from "react-toastify";
+import { addProdToCart } from "../features/user/userSlice";
 
 const SingleProduct = () => {
+  const [color, setColor] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+
   const location = useLocation();
   const getProductId = location.pathname.split("/")[2];
   const dispatch = useDispatch();
-  const productState = useSelector((state) => state.product.product);
+  const productState = useSelector((state) => state.product.singleproduct);
 
   useEffect(() => {
     dispatch(getAProduct(getProductId));
   }, []);
+  const uploadcart = () => {
+    if (color === null) {
+      toast.error("Please Choose Color");
+      return false;
+    } else {
+      dispatch(
+        addProdToCart({
+          productId: productState?._id,
+          quantity,
+          color,
+          price: productState?.price,
+        })
+      );
+    }
+  };
   const props = {
     width: 400,
     height: 600,
     zoomWidth: 600,
-    img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg",
+    img: productState?.images[0]?.url
+      ? productState?.images[0]?.url
+      : "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg",
   };
   const [orderedProduct, setOrderedProduct] = useState(true);
   const copyToClipboard = (text) => {
@@ -51,34 +73,13 @@ const SingleProduct = () => {
               </div>
             </div>
             <div className="other-product-images d-flex flex-wrap gap-15">
-              <div>
-                <img
-                  src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
-                  alt=""
-                  className="img-fluid"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
-                  alt=""
-                  className="img-fluid"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
-                  alt=""
-                  className="img-fluid"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
-                  alt=""
-                  className="img-fluid"
-                />
-              </div>
+              {productState?.images.map((item, index) => {
+                return (
+                  <div>
+                    <img src={item?.url} alt="" className="img-fluid" />
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="col-6">
@@ -142,7 +143,7 @@ const SingleProduct = () => {
                 </div>
                 <div className="d-flex gap-10 flex-column mt-2 mb-3">
                   <h3 className="product-heading">Color : </h3>
-                  <Color />
+                  <Color setColor={setColor} colorData={productState?.color} />
                 </div>
                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
                   <h3 className="product-heading">Quantity : </h3>
@@ -154,10 +155,20 @@ const SingleProduct = () => {
                       max={10}
                       style={{ width: "70px" }}
                       id=""
+                      onChange={(e) => setQuantity(e.target.value)}
+                      value={quantity}
                     />
                   </div>
                   <div className="d-flex align-items-center gap-30 ms-5">
-                    <button className="button border-0" type="submit">
+                    <button
+                      className="button border-0"
+                      type="button"
+                      // data-bs-toggle="modal"
+                      // data-bs-target="#staticBackdrop"
+                      onClick={() => {
+                        uploadcart();
+                      }}
+                    >
                       Add to Cart
                     </button>
                     <button className="button signup">But It Now</button>
@@ -189,11 +200,7 @@ const SingleProduct = () => {
                   <h3 className="product-heading">Product Link : </h3>
                   <a
                     href="javascript:void(0)"
-                    onClick={() =>
-                      copyToClipboard(
-                        window.location.href
-                      )
-                    }
+                    onClick={() => copyToClipboard(window.location.href)}
                   >
                     Copy Product Link
                   </a>
