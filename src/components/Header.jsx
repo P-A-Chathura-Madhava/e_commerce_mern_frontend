@@ -8,11 +8,14 @@ import { useState } from "react";
 const Header = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state?.auth?.cartProducts);
+  const authState = useSelector((state) => state.auth);
   const [total, setTotal] = useState(null);
   useEffect(() => {
     let sum = 0;
     for (let index = 0; index < cartState?.length; index++) {
-      sum = sum + (Number(cartState[index].quantity) * Number(cartState[index].price))
+      sum =
+        sum +
+        Number(cartState[index].quantity) * Number(cartState[index].price);
       setTotal(sum);
     }
   }, [cartState]);
@@ -85,13 +88,19 @@ const Header = () => {
                 </div>
                 <div>
                   <Link
-                    to="/login"
+                    to={authState?.user === null ? "/login" : ""}
                     className="d-flex align-items-center gap-10 text-white"
                   >
                     <img src="images/user.svg" alt="user" />
-                    <p className="mb-0">
-                      Login <br /> My Account
-                    </p>
+                    {authState?.user === null ? (
+                      <p className="mb-0">
+                        Login <br /> My Account
+                      </p>
+                    ) : (
+                      <p className="mb-0">
+                        Welcome {authState?.user?.firstname}
+                      </p>
+                    )}
                   </Link>
                 </div>
                 <div>
@@ -101,7 +110,9 @@ const Header = () => {
                   >
                     <img src="images/cart.svg" alt="cart" />
                     <div className="d-flex flex-column gap-10">
-                      <span className="badge bg-white text-dark">{cartState?.length ? cartState.length : 0}</span>
+                      <span className="badge bg-white text-dark">
+                        {cartState?.length ? cartState.length : 0}
+                      </span>
                       <p className="mb-0">$ {total ? total : 0}</p>
                     </div>
                   </Link>
