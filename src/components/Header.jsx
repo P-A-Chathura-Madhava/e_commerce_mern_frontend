@@ -6,13 +6,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
+import { getAProduct } from "../features/products/productSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state?.auth?.cartProducts);
   const authState = useSelector((state) => state?.auth);
   const [total, setTotal] = useState(null);
-  const productState = useSelector(state => state?.product?.product);
+  const productState = useSelector((state) => state?.product?.product);
   const [productOpt, setProductOpt] = useState([]);
   const [paginate, setPaginate] = useState(true);
   const navigate = useNavigate();
@@ -28,14 +29,13 @@ const Header = () => {
   }, [cartState]);
 
   useEffect(() => {
-      let data = [];
-      for (let index = 0; index < productState.length; index++) {
-        const element = productState[index];
-        data.push({id: index, prod: element?._id, name: element?.title})
-        
-      }
-      setProductOpt(data);
-  },[productState]);
+    let data = [];
+    for (let index = 0; index < productState.length; index++) {
+      const element = productState[index];
+      data.push({ id: index, prod: element?._id, name: element?.title });
+    }
+    setProductOpt(data);
+  }, [productState]);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -76,11 +76,12 @@ const Header = () => {
                   id="pagination-example"
                   onPaginate={() => console.log("Results paginated")}
                   onChange={(selected) => {
-                    navigate(`/product/${selected[0].prod}`)
+                    navigate(`/product/${selected[0]?.prod}`);
+                    dispatch(getAProduct(selected[0]?.prod));
                   }}
                   options={productOpt}
                   paginate={paginate}
-                  labelKey={'name'}
+                  labelKey={"name"}
                   minLength={2}
                   placeholder="Search for Products here..."
                 />
@@ -92,7 +93,7 @@ const Header = () => {
             <div className="col-5">
               <div className="header-upper-links d-flex align-items-center justify-content-between">
                 <div>
-                  <Link
+                  {/* <Link
                     to="/compare-product"
                     className="d-flex align-items-center gap-10 text-white"
                   >
@@ -100,7 +101,7 @@ const Header = () => {
                     <p className="mb-0">
                       Compare <br /> Products
                     </p>
-                  </Link>
+                  </Link> */}
                 </div>
                 <div>
                   <Link
