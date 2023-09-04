@@ -47,7 +47,9 @@ const OurStore = () => {
   }, [sort, tag, brand, category, minPrice, maxPrice]);
 
   const getProducts = () => {
-    dispatch(getAllProducts({sort, tag, brand, category, minPrice, maxPrice}));
+    dispatch(
+      getAllProducts({ sort, tag, brand, category, minPrice, maxPrice })
+    );
   };
 
   return (

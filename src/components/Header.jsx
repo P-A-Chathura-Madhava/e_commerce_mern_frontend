@@ -20,20 +20,20 @@ const Header = () => {
   const navigate = useNavigate();
 
   const getTokenFromLocalStorage = localStorage.getItem("customer")
-  ? JSON.parse(localStorage.getItem("customer"))
-  : null;
+    ? JSON.parse(localStorage.getItem("customer"))
+    : null;
 
-const config2 = {
-  headers: {
-    Authorization: `Bearer ${
-      getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
-    }`,
-    Accept: "application/json",
-  },
-};
+  const config2 = {
+    headers: {
+      Authorization: `Bearer ${
+        getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
+      }`,
+      Accept: "application/json",
+    },
+  };
 
   useEffect(() => {
-    dispatch(getUserCart(config2))
+    dispatch(getUserCart(config2));
   }, []);
 
   useEffect(() => {

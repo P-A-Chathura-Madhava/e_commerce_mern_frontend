@@ -39,7 +39,11 @@ const Orders = () => {
             {orderState &&
               orderState?.map((item, index) => {
                 return (
-                  <div style={{backgroundColor: "#febd69"}} className="row pt-3 my-3" key={index}>
+                  <div
+                    style={{ backgroundColor: "#febd69" }}
+                    className="row pt-3 my-3"
+                    key={index}
+                  >
                     <div className="col-3">
                       <p>{item?._id}</p>
                     </div>
@@ -53,7 +57,10 @@ const Orders = () => {
                       <p>{item?.orderStatus}</p>
                     </div>
                     <div className="col-12">
-                      <div className="row py-3" style={{backgroundColor:"#232f3e"}}>
+                      <div
+                        className="row py-3"
+                        style={{ backgroundColor: "#232f3e" }}
+                      >
                         <div className="col-3">
                           <h6 className="text-white">Product Name</h6>
                         </div>
@@ -71,7 +78,9 @@ const Orders = () => {
                             <div className="col-12">
                               <div className="row p-3">
                                 <div className="col-3">
-                                  <p className="text-white">{i?.product?.title}</p>
+                                  <p className="text-white">
+                                    {i?.product?.title}
+                                  </p>
                                 </div>
                                 <div className="col-3">
                                   <p className="text-white">{i?.quantity}</p>

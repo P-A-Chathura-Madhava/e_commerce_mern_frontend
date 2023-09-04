@@ -6,7 +6,7 @@ import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../features/user/userSlice";
 import { useState } from "react";
-import {FiEdit} from 'react-icons/fi';
+import { FiEdit } from "react-icons/fi";
 
 const profileSchema = yup.object({
   firstname: yup.string().required("First Name is required"),
@@ -18,21 +18,19 @@ const profileSchema = yup.object({
   mobile: yup.string().required("Mobile No is required"),
 });
 
-
-
 const Profile = () => {
   const getTokenFromLocalStorage = localStorage.getItem("customer")
-  ? JSON.parse(localStorage.getItem("customer"))
-  : null;
+    ? JSON.parse(localStorage.getItem("customer"))
+    : null;
 
-const config2 = {
-  headers: {
-    Authorization: `Bearer ${
-      getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
-    }`,
-    Accept: "application/json",
-  },
-};
+  const config2 = {
+    headers: {
+      Authorization: `Bearer ${
+        getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
+      }`,
+      Accept: "application/json",
+    },
+  };
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.auth.user);
   const [edit, setEdit] = useState(true);
@@ -46,7 +44,7 @@ const config2 = {
     },
     validationSchema: profileSchema,
     onSubmit: (values) => {
-      dispatch(updateProfile({data: values, config2: config2}));
+      dispatch(updateProfile({ data: values, config2: config2 }));
       setEdit(true);
     },
   });
@@ -58,7 +56,7 @@ const config2 = {
           <div className="col-12">
             <div className="d-flex justify-content-between align-items-center">
               <h3 className="my-3">Update Profile</h3>
-              <FiEdit className="fs-3" onClick={() => setEdit(false)}/>
+              <FiEdit className="fs-3" onClick={() => setEdit(false)} />
             </div>
           </div>
           <div className="col-12">

@@ -29,9 +29,7 @@ const ProductCard = (props) => {
               location.pathname == "/product" ? `gr-${grid}` : "col-3"
             }`}
           >
-            <div
-              className="product-card position-relative"
-            >
+            <div className="product-card position-relative">
               <div className="wishlist-icon position-absolute">
                 <button
                   className="border-0 bg-transparent"
@@ -79,7 +77,10 @@ const ProductCard = (props) => {
                   {/* <button className="border-0 bg-transparent">
                     <img src={prodcompare} alt="compare" />
                   </button> */}
-                  <Link to={'/product/' + item?._id} className="border-0 bg-transparent">
+                  <Link
+                    to={"/product/" + item?._id}
+                    className="border-0 bg-transparent"
+                  >
                     <img src={view} alt="view" />
                   </Link>
                   {/* <button className="border-0 bg-transparent">

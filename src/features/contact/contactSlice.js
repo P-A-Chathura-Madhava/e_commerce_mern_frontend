@@ -34,8 +34,8 @@ export const contactSlice = createSlice({
         state.isError = false;
         state.isSuccess = true;
         state.contact = action.payload;
-        if (state.isSuccess === true){
-            toast.success('Contact for Submitted Successfully')
+        if (state.isSuccess === true) {
+          toast.success("Contact for Submitted Successfully");
         }
       })
       .addCase(createQuery.rejected, (state, action) => {
@@ -43,8 +43,8 @@ export const contactSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
         state.message = action.error;
-        if (state.isError === true){
-            toast.success('Something went wrong')
+        if (state.isError === true) {
+          toast.success("Something went wrong");
         }
       });
   },

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {BsLinkedin, BsGithub, BsYoutube, BsInstagram} from 'react-icons/bs'
-import newsletter from '../images/newsletter.png';
+import { BsLinkedin, BsGithub, BsYoutube, BsInstagram } from "react-icons/bs";
+import newsletter from "../images/newsletter.png";
 
 const Footer = () => {
   return (
@@ -42,24 +42,30 @@ const Footer = () => {
                   No: 100, Colombo <br />
                   PinCode: 131103
                 </address>
-                <a href="tel: 034-1234546" className="mt-3 d-block mb-1 text-white">
+                <a
+                  href="tel: 034-1234546"
+                  className="mt-3 d-block mb-1 text-white"
+                >
                   +9434 1234546
                 </a>
-                <a href="mailto: ctechdev@gmail.com" className="mt-2 d-block mb-0 text-white">
+                <a
+                  href="mailto: ctechdev@gmail.com"
+                  className="mt-2 d-block mb-0 text-white"
+                >
                   ctechdev@gmail.com
                 </a>
                 <div className="social_icons d-flex align-items-center gap-30 mt-4">
                   <a className="text-white" href="">
-                    <BsLinkedin className="fs-4"/>
+                    <BsLinkedin className="fs-4" />
                   </a>
                   <a className="text-white" href="">
-                    <BsInstagram className="fs-4"/>
+                    <BsInstagram className="fs-4" />
                   </a>
                   <a className="text-white" href="">
-                    <BsGithub className="fs-4"/>
+                    <BsGithub className="fs-4" />
                   </a>
                   <a className="text-white" href="">
-                    <BsYoutube className="fs-4"/>
+                    <BsYoutube className="fs-4" />
                   </a>
                 </div>
               </div>
@@ -67,10 +73,18 @@ const Footer = () => {
             <div className="col-3">
               <h4 className="text-white mb-4">Information</h4>
               <div className="footer-links d-flex flex-column">
-                <Link to="/privacy-policy" className="text-white py-2 mb-1">Privacy Policy</Link>
-                <Link to="/refund-policy" className="text-white py-2 mb-1">Refund Policy</Link>
-                <Link to="/shipping-policy" className="text-white py-2 mb-1">Shipping Policy</Link>
-                <Link to="/termsandconditions" className="text-white py-2 mb-1">Terms & Conditions</Link>
+                <Link to="/privacy-policy" className="text-white py-2 mb-1">
+                  Privacy Policy
+                </Link>
+                <Link to="/refund-policy" className="text-white py-2 mb-1">
+                  Refund Policy
+                </Link>
+                <Link to="/shipping-policy" className="text-white py-2 mb-1">
+                  Shipping Policy
+                </Link>
+                <Link to="/termsandconditions" className="text-white py-2 mb-1">
+                  Terms & Conditions
+                </Link>
                 <Link className="text-white py-2 mb-1">Blogs</Link>
               </div>
             </div>

@@ -15,17 +15,17 @@ import { useState } from "react";
 
 const Cart = () => {
   const getTokenFromLocalStorage = localStorage.getItem("customer")
-  ? JSON.parse(localStorage.getItem("customer"))
-  : null;
+    ? JSON.parse(localStorage.getItem("customer"))
+    : null;
 
-const config2 = {
-  headers: {
-    Authorization: `Bearer ${
-      getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
-    }`,
-    Accept: "application/json",
-  },
-};
+  const config2 = {
+    headers: {
+      Authorization: `Bearer ${
+        getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
+      }`,
+      Accept: "application/json",
+    },
+  };
   const dispatch = useDispatch();
   const [productUpdateDetail, setProductUpdateDetail] = useState(null);
   const [totalAmount, setTotalAmount] = useState(null);
@@ -47,7 +47,7 @@ const config2 = {
     }
   }, [productUpdateDetail]);
   const deleteACartProduct = (id) => {
-    dispatch(deleteCartProduct({id: id, config2: config2}));
+    dispatch(deleteCartProduct({ id: id, config2: config2 }));
     setTimeout(() => {
       dispatch(getUserCart(config2));
     }, 200);

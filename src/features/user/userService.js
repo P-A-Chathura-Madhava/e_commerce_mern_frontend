@@ -88,35 +88,45 @@ const getUserOrders = async () => {
   if (response.data) {
     return response.data;
   }
-}
+};
 
 const updateUser = async (data) => {
-  const response = await axios.put(`${base_url}user/edit-user`, data.data, data.config2);
+  const response = await axios.put(
+    `${base_url}user/edit-user`,
+    data.data,
+    data.config2
+  );
   if (response.data) {
     return response.data;
   }
-}
+};
 
 const forgotPassToken = async (data) => {
-  const response = await axios.post(`${base_url}user/forgot-password-token`, data);
+  const response = await axios.post(
+    `${base_url}user/forgot-password-token`,
+    data
+  );
   if (response.data) {
     return response.data;
   }
-}
+};
 
 const resetPass = async (data) => {
-  const response = await axios.put(`${base_url}user/reset-password/${data.token}`, {password: data?.password});
+  const response = await axios.put(
+    `${base_url}user/reset-password/${data.token}`,
+    { password: data?.password }
+  );
   if (response.data) {
     return response.data;
   }
-}
+};
 
 const emptyCart = async (data) => {
   const response = await axios.delete(`${base_url}user/empty-cart`, data);
   if (response.data) {
     return response.data;
   }
-}
+};
 
 export const authService = {
   register,

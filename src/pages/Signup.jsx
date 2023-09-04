@@ -22,7 +22,7 @@ const signSchema = yup.object({
 });
 
 const Signup = () => {
-  const authState = useSelector(state => state.auth);
+  const authState = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formik = useFormik({
@@ -39,9 +39,9 @@ const Signup = () => {
     },
   });
 
-  useEffect(()=> {
+  useEffect(() => {
     if (authState.createdUser !== null && authState.isError === false) {
-      navigate('/login');
+      navigate("/login");
     }
   }, [authState]);
   return (

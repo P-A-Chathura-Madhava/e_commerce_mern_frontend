@@ -1,7 +1,16 @@
 import React from "react";
 
 const CustomInput = (props) => {
-    const {type, name, placeholder, classname, value, onChange, onBlur, disabled} = props;
+  const {
+    type,
+    name,
+    placeholder,
+    classname,
+    value,
+    onChange,
+    onBlur,
+    disabled,
+  } = props;
   return (
     <div>
       <input

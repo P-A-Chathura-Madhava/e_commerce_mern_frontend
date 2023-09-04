@@ -24,7 +24,7 @@ const Resetpassword = () => {
     },
     validationSchema: passwordSchema,
     onSubmit: (values) => {
-      dispatch(resetPassword({token:getToken, password: values.password}));
+      dispatch(resetPassword({ token: getToken, password: values.password }));
       navigate("/login");
     },
   });
@@ -37,7 +37,11 @@ const Resetpassword = () => {
           <div className="col-12">
             <div className="auth-card">
               <h3 className="text-center mb-3">Reset Password</h3>
-              <form action="" onSubmit={formik.handleSubmit} className="d-flex flex-column gap-15">
+              <form
+                action=""
+                onSubmit={formik.handleSubmit}
+                className="d-flex flex-column gap-15"
+              >
                 <CustomInput
                   type="password"
                   name="password"

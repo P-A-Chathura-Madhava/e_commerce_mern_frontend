@@ -9,7 +9,11 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import { config } from "../utils/axiosConfig";
-import { createAnOrder, deleteUserCart, resetState } from "../features/user/userSlice";
+import {
+  createAnOrder,
+  deleteUserCart,
+  resetState,
+} from "../features/user/userSlice";
 
 const shippingSchema = yup.object({
   firstName: yup.string().required("First Name is Required"),
@@ -24,7 +28,7 @@ const shippingSchema = yup.object({
 const Checkout = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.auth.cartProducts);
-  const authState = useSelector(state => state.auth);
+  const authState = useSelector((state) => state.auth);
   const [totalAmount, setTotalAmount] = useState(null);
   const [shippingInfo, setShippingInfo] = useState(null);
   const navigate = useNavigate();
@@ -43,25 +47,28 @@ const Checkout = () => {
   }, [cartState]);
 
   const getTokenFromLocalStorage = localStorage.getItem("customer")
-  ? JSON.parse(localStorage.getItem("customer"))
-  : null;
+    ? JSON.parse(localStorage.getItem("customer"))
+    : null;
 
-const config2 = {
-  headers: {
-    Authorization: `Bearer ${
-      getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
-    }`,
-    Accept: "application/json",
-  },
-};
+  const config2 = {
+    headers: {
+      Authorization: `Bearer ${
+        getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
+      }`,
+      Accept: "application/json",
+    },
+  };
 
   // useEffect(() => {
   //   dispatch(getUserCart(config2))
   // }, []);
 
   useEffect(() => {
-    if (authState?.orderedProduct?.order !== null && authState?.orderedProduct?.success === true) {
-      navigate('/my-orders');
+    if (
+      authState?.orderedProduct?.order !== null &&
+      authState?.orderedProduct?.success === true
+    ) {
+      navigate("/my-orders");
     }
   }, [authState]);
   const formik = useFormik({
@@ -78,10 +85,10 @@ const config2 = {
     validationSchema: shippingSchema,
     onSubmit: (values) => {
       setShippingInfo(values);
-      localStorage.setItem('address', JSON.stringify(values));
+      localStorage.setItem("address", JSON.stringify(values));
       setTimeout(() => {
         checkoutHandler();
-      }, 300)
+      }, 300);
     },
   });
   const loadScript = (src) => {
@@ -121,7 +128,7 @@ const config2 = {
     }
     const result = await axios.post(
       "http://localhost:5000/api/user/order/checkout",
-      {amount: totalAmount + 5},
+      { amount: totalAmount + 5 },
       config
     );
     if (!result) {
@@ -156,11 +163,11 @@ const config2 = {
             totalPriceAfterDiscount: totalAmount,
             orderItems: cartProductState,
             paymentInfo: result.data,
-            shippingInfo: JSON.parse(localStorage.getItem('address')),
+            shippingInfo: JSON.parse(localStorage.getItem("address")),
           })
         );
         dispatch(deleteUserCart(config2));
-        localStorage.removeItem('address');
+        localStorage.removeItem("address");
         dispatch(resetState());
       },
       prefill: {

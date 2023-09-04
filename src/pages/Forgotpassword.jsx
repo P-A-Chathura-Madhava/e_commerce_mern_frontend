@@ -40,14 +40,19 @@ const Forgotpassword = () => {
               <p className="text-center my-2 mb-3">
                 We will send you an email to reset your password
               </p>
-              <form action="" onSubmit={formik.handleSubmit} className="d-flex flex-column gap-15">
-                <CustomInput type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={formik.handleChange("email")}
-                    onBlur={formik.handleBlur("email")}
-                    value={formik.values.email}
-                    />
+              <form
+                action=""
+                onSubmit={formik.handleSubmit}
+                className="d-flex flex-column gap-15"
+              >
+                <CustomInput
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  onChange={formik.handleChange("email")}
+                  onBlur={formik.handleBlur("email")}
+                  value={formik.values.email}
+                />
                 <div className="error text-center">
                   {formik.touched.email && formik.errors.email}
                 </div>

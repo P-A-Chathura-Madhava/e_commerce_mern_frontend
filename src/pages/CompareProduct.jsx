@@ -30,27 +30,27 @@ const CompareProduct = () => {
                   <h6 className="price mb-3 mt-3">140000LKR</h6>
                   <div>
                     <div className="product-detail">
-                        <h5>Brand:</h5>
-                        <p>Havels</p>
+                      <h5>Brand:</h5>
+                      <p>Havels</p>
                     </div>
                     <div className="product-detail">
-                        <h5>Type:</h5>
-                        <p>Watch</p>
+                      <h5>Type:</h5>
+                      <p>Watch</p>
                     </div>
                     <div className="product-detail">
-                        <h5>Availability:</h5>
-                        <p>In Stock</p>
+                      <h5>Availability:</h5>
+                      <p>In Stock</p>
                     </div>
                     <div className="product-detail">
-                        <h5>Color:</h5>
-                        <Color/>
+                      <h5>Color:</h5>
+                      <Color />
                     </div>
                     <div className="product-detail">
-                        <h5>Size:</h5>
-                        <div className="d-flex gap-10">
-                            <p>S</p>
-                            <p>M</p>
-                        </div>
+                      <h5>Size:</h5>
+                      <div className="d-flex gap-10">
+                        <p>S</p>
+                        <p>M</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -73,27 +73,27 @@ const CompareProduct = () => {
                   <h6 className="price mb-3 mt-3">140000LKR</h6>
                   <div>
                     <div className="product-detail">
-                        <h5>Brand:</h5>
-                        <p>Havels</p>
+                      <h5>Brand:</h5>
+                      <p>Havels</p>
                     </div>
                     <div className="product-detail">
-                        <h5>Type:</h5>
-                        <p>Watch</p>
+                      <h5>Type:</h5>
+                      <p>Watch</p>
                     </div>
                     <div className="product-detail">
-                        <h5>Availability:</h5>
-                        <p>In Stock</p>
+                      <h5>Availability:</h5>
+                      <p>In Stock</p>
                     </div>
                     <div className="product-detail">
-                        <h5>Color:</h5>
-                        <Color/>
+                      <h5>Color:</h5>
+                      <Color />
                     </div>
                     <div className="product-detail">
-                        <h5>Size:</h5>
-                        <div className="d-flex gap-10">
-                            <p>S</p>
-                            <p>M</p>
-                        </div>
+                      <h5>Size:</h5>
+                      <div className="d-flex gap-10">
+                        <p>S</p>
+                        <p>M</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ const CompareProduct = () => {
             </div>
           </div>
         </div>
-        </Container>
+      </Container>
       {/* </div> */}
     </>
   );
