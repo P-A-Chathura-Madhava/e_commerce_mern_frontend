@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="">
-    <img src="/project-logo.jpg" alt="Logo" width="80" height="80">
+    <img src="/applicationImages/project-logo.jpg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">MERN - ECommerce Application User Frontend API</h3>
@@ -88,6 +88,19 @@ Things you need to use the software and how to install them.
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+#### Some Screenshots of the project:
+- Home Page
+![image](/applicationImages/u_home.png)
+
+- Login Page
+![image](/applicationImages/u_login.png)
+
+- Shop Categories Page
+![image](/applicationImages/u_shop_categories.png)
+
+- Contact Page
+![image](/applicationImages/u-contact.png)
 
 <!-- CONTACT -->
 
