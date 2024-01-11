@@ -1,9 +1,9 @@
 import axios from "axios";
-import { base_url, config } from "../../utils/axiosConfig";
+import { config } from "../../utils/axiosConfig";
 
 const getProducts = async (data) => {
   const response = await axios.get(
-    `${base_url}product?${data?.brand ? `brand=${data?.brand}&&` : ""}${
+    `${process.env.REACT_APP_BASE_URL}product?${data?.brand ? `brand=${data?.brand}&&` : ""}${
       data?.tag ? `brand=${data?.tag}&&` : ""
     }${data?.category ? `category=${data?.category}&&` : ""}${
       data?.minPrice ? `price[gte]=${data?.minPrice}&&` : ""
@@ -17,7 +17,7 @@ const getProducts = async (data) => {
 };
 
 const getSingleProduct = async (id) => {
-  const response = await axios.get(`${base_url}product/${id}`);
+  const response = await axios.get(`${process.env.REACT_APP_BASE_URL}product/${id}`);
   if (response.data) {
     return response.data;
   }
@@ -25,7 +25,7 @@ const getSingleProduct = async (id) => {
 
 const addToWishlist = async (prodId) => {
   const response = await axios.put(
-    `${base_url}product/wishlist`,
+    `${process.env.REACT_APP_BASE_URL}product/wishlist`,
     { prodId },
     config
   );
@@ -35,7 +35,7 @@ const addToWishlist = async (prodId) => {
 };
 
 const rateProduct = async (data) => {
-  const response = await axios.put(`${base_url}product/rating`, data, config);
+  const response = await axios.put(`${process.env.REACT_APP_BASE_URL}product/rating`, data, config);
   if (response.data) {
     return response.data;
   }

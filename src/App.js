@@ -27,6 +27,7 @@ import Orders from "./pages/Orders";
 import Profile from "./pages/Profile";
 
 function App() {
+  // console.log(process.env.REACT_APP_BASE_URL);
   return (
     <>
       <BrowserRouter>
